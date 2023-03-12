@@ -15,28 +15,34 @@ public class StopAbleImp implements StopAble {
     public void getPeopleTransport(List<Car> cars) {
         String nameTrue = "";
         boolean isTrue = true;
+        boolean isTrueIf = true;
         while (isTrue) {
             try {
                 String name = new Scanner(System.in).nextLine().toUpperCase();
                 for (Car c : cars) {
                     if (c.getName().toUpperCase().equals(name)) {
-                        nameTrue = name;
-                        isTrue = false;
-                    } else {
-                        throw new CheckName("Введенный вами запрос не правильно");
+                        if (c.getTypeCar() == 'B') {
+                            nameTrue = name;
+                            System.out.println(c.toString());
+                            isTrue = false;
+                            isTrueIf = false;
+                            break;
+                        } else {
+                            nameTrue = name;
+                            System.out.println(c.toString());
+                            isTrue = false;
+                            isTrueIf = false;
+                            break;
+                        }
                     }
+                }
+                if (isTrueIf) {
+                    throw new CheckName("Введенный вами запрос не правильно");
                 }
             } catch (CheckName e) {
                 System.out.println(e.getMessage());
             }
-        }
 
-        for (Car c : cars) {
-            if (c.getName().toUpperCase().equals(nameTrue)) {
-                for (Person p : c.getPeople()) {
-                    System.out.println(p.toString());
-                }
-            }
         }
     }
 

@@ -1,8 +1,10 @@
 import java.util.List;
 
 public class Taxi extends Car{
-    public Taxi(String name, String color, short price, short maxGuest, List<Person> people) {
-        super(name, color, price, maxGuest, people);
+    List<Person> people;
+    public Taxi(String name, String color, short price, short maxGuest,char typeCar, List<Person> people) {
+        super(name, color, price, maxGuest,typeCar);
+        this.people = people;
     }
 
     public Taxi() {
@@ -10,7 +12,7 @@ public class Taxi extends Car{
 
     @Override
     public void stop() {
-        int a = getPeople().size();
+        int a = people.size();
         if (a != 4){
             System.out.println("Stop");
         }else {
@@ -20,6 +22,7 @@ public class Taxi extends Car{
 
     @Override
     public String toString() {
-        return "\nTaxi: " + super.toString();
+        return "\nTaxi: " + super.toString() +
+                "\n" + people;
     }
 }

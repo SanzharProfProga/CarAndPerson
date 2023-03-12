@@ -5,14 +5,16 @@ public abstract class Car {
     private String color;
     private short price;
     private short maxGuest;
-    private List<Person> people;
+    private char typeCar;
 
-    public Car(String name, String color, short price, short maxGuest, List<Person> people) {
+
+    public Car(String name, String color, short price, short maxGuest,char typeCar) {
         this.name = name;
         this.color = color;
         this.price = price;
         this.maxGuest = maxGuest;
-        this.people = people;
+        this.typeCar = typeCar;
+
     }
 
     public Car() {
@@ -50,12 +52,12 @@ public abstract class Car {
         this.maxGuest = maxGuest;
     }
 
-    public List<Person> getPeople() {
-        return people;
+    public char getTypeCar() {
+        return typeCar;
     }
 
-    public void setPeople(List<Person> people) {
-        this.people = people;
+    public void setTypeCar(char typeCar) {
+        this.typeCar = typeCar;
     }
 
     public abstract void stop();
@@ -65,6 +67,7 @@ public abstract class Car {
         return "\nName: " + name +
                 "\nColor: " + color +
                 "\nPrice: " + price +
-                "\nMax guest: " + maxGuest;
+                "\nMax guest: " + maxGuest +
+                "\nType: " + typeCar;
     }
 }

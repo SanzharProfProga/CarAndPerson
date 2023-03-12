@@ -22,30 +22,29 @@ public class Main {
         6.Баардык методдорду Main класста иштетиниз.*/
 
 
-                List<Person> people = new ArrayList<>(Arrays.asList(
-                        new Person("Nurik",(byte) 19,Gender.MALE),
-                        new Person("Davran",(byte) 17,Gender.MALE),
-                        new Person("Ilim",(byte) 20,Gender.MALE),
-                        new Person("Dastan",(byte) 19,Gender.MALE),
-                        new Person("Tahir",(byte) 30,Gender.MALE),
-                        new Person("Nurzhamal",(byte) 30,Gender.FEMALE),
-                        new Person("Samara",(byte) 41,Gender.FEMALE),
-                        new Person("Aimona",(byte) 17,Gender.FEMALE)));
-        Bus bus = new Bus("36","Blue and White",(short) 11,(short) 30,people);
+        List<Person> people = new ArrayList<>(Arrays.asList(
+                new Person("Nurik", (byte) 19, Gender.MALE),
+                new Person("Davran", (byte) 17, Gender.MALE),
+                new Person("Ilim", (byte) 20, Gender.MALE),
+                new Person("Dastan", (byte) 19, Gender.MALE),
+                new Person("Tahir", (byte) 30, Gender.MALE),
+                new Person("Nurzhamal", (byte) 30, Gender.FEMALE),
+                new Person("Samara", (byte) 41, Gender.FEMALE),
+                new Person("Aimona", (byte) 17, Gender.FEMALE)));
+        Bus bus = new Bus("36", "Blue and White", (short) 11, (short) 30, 'B', people);
 
         List<Person> person1 = new ArrayList<>(Arrays.asList(
-                new Person("Sanzhar",(byte) 19,Gender.MALE),
-                new Person("Das",(byte) 18,Gender.MALE),
-                new Person("Santos",(byte) 25,Gender.MALE),
-                new Person("Santos",(byte) 25,Gender.MALE)));
-        Taxi taxi = new Taxi("Yandex","Blak",(short)100,(short) 4,person1);
-        List<Car> cars = new ArrayList<>(Arrays.asList(bus,taxi));
+                new Person("Sanzhar", (byte) 19, Gender.MALE),
+                new Person("Das", (byte) 18, Gender.MALE),
+                new Person("Santos", (byte) 25, Gender.MALE),
+                new Person("Santos", (byte) 25, Gender.MALE)));
+        Taxi taxi = new Taxi("Yandex", "Blak", (short) 100, (short) 4, 'T', person1);
+        List<Car> cars = new ArrayList<>(Arrays.asList(bus, taxi));
         StopAbleImp stopAbleImp = new StopAbleImp();
 
 
-
         boolean isTrue = false;
-        while (!isTrue){
+        while (!isTrue) {
             System.out.println("""
                     1. Get cars
                     2. Info car
@@ -55,7 +54,7 @@ public class Main {
                     0. End program
                     """);
             int a = new Scanner(System.in).nextInt();
-            switch (a){
+            switch (a) {
                 case 1 -> stopAbleImp.getTransport(cars);
                 case 2 -> stopAbleImp.getPeopleTransport(cars);
                 case 3 -> stopAbleImp.getNameTransport(cars);
